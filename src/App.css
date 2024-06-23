@@ -58,6 +58,8 @@ h2 {
 
 .display-wrapper {
   text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .display-container {
@@ -66,12 +68,15 @@ h2 {
   border-radius: 5px;
   display: flex;
   justify-content: center;
-  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
   margin: 0 auto;
 }
 
 .display-container svg {
   margin: 0 5px;
+  max-width: 100%;
+  height: auto;
 }
 
 .examples-container button {

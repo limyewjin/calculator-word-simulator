@@ -31,7 +31,7 @@ const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
   const activeSeg = segments[digit] || segments[' '];
 
   return (
-    <svg width="48" height="64" viewBox="0 0 50 50" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none' }}>
+    <svg width="48" height="64" viewBox="0 0 50 50" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none', maxWidth: '100%', height: 'auto' }}>
       <rect x="0" y="0" width="50" height="50" fill="black" />
       {segmentPaths.map((d, i) => (
         <path key={i} d={d} stroke={activeSeg[i] ? 'white' : '#222'} strokeWidth="4" strokeLinecap="round" fill="none" />
