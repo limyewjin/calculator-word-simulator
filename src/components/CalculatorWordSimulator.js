@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from './ui/Input';
 import { Button } from './ui/Button';
-import '../App.css';
+import '../App.css'; // Updated import path
 
 const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
   const segments = {
@@ -102,11 +102,11 @@ const CalculatorWordSimulator = () => {
         />
         <Button onClick={clearInput}>Clear</Button>
       </div>
-      <div className="display-container">
+      <div className="display-wrapper">
         <p className="text-sm font-semibold">Normal view:</p>
         <CalculatorDisplay value={input} />
       </div>
-      <div className="display-container">
+      <div className="display-wrapper">
         <p className="text-sm font-semibold">Upside-down view:</p>
         <CalculatorDisplay value={input} upsideDown={true} />
       </div>
