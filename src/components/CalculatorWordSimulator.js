@@ -36,7 +36,7 @@ const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
       {segmentPaths.map((d, i) => (
         <path key={i} d={d} stroke={activeSeg[i] ? 'white' : '#222'} strokeWidth="4" strokeLinecap="round" fill="none" />
       ))}
-      {hasDecimal && <circle cx="44" cy="56" r="4" fill="white" />}
+      {hasDecimal && <circle cx="44" cy="48" r="4" fill="white" />}
     </svg>
   );
 };
