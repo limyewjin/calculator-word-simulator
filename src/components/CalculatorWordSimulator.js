@@ -44,7 +44,8 @@ const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
 const CalculatorDisplay = ({ value, upsideDown = false }) => {
   let processedValue = value;
   if (upsideDown) {
-    processedValue = value.split('').reverse().join('').replace(/\.(.*)/, '$1.');
+    // Reverse the string
+    processedValue = value.split('').reverse().join('');
   }
 
   const [intPart, fracPart] = processedValue.split('.');
