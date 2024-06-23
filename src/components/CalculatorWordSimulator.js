@@ -31,7 +31,7 @@ const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
   const activeSeg = segments[digit] || segments[' '];
 
   return (
-    <svg width="48" height="64" viewBox="0 0 52 64" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none' }}>
+    <svg width="50" height="64" viewBox="0 0 50 64" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none' }}>
       <rect x="0" y="0" width="50" height="64" fill="black" />
       {segmentPaths.map((d, i) => (
         <path key={i} d={d} stroke={activeSeg[i] ? 'white' : '#222'} strokeWidth="4" strokeLinecap="round" fill="none" />
@@ -39,6 +39,13 @@ const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
       {hasDecimal && <circle cx="46" cy="48" r="4" fill="white" />}
     </svg>
   );
+};
+
+const convertLettersToNumbers = (value) => {
+  const letterToNumberMap = {
+    'O': '0', 'I': '1', 'Z': '2', 'E': '3', 'H': '4', 'S': '5', 'G': '6', 'L': '7', 'B': '8', 'G': '9'
+  };
+  return value.split('').map(char => letterToNumberMap[char.toUpperCase()] || char).join('');
 };
 
 const CalculatorDisplay = ({ value, upsideDown = false }) => {
@@ -67,15 +74,20 @@ const CalculatorDisplay = ({ value, upsideDown = false }) => {
 };
 
 const CalculatorWordSimulator = () => {
+  const [originalInput, setOriginalInput] = useState('');
   const [input, setInput] = useState('');
 
   const handleInputChange = (e) => {
-    const value = e.target.value.replace(/[^0-9.]/g, '');
-    if (value.split('.').length > 2) return; // Prevent multiple decimal points
-    setInput(value.slice(0, 12)); // Allow up to 11 digits plus potentially 1 decimal point
+    let value = e.target.value.replace(/[^0-9OIZEHSLGB]/gi, '');
+    value = value.toUpperCase(); // Convert all letters to uppercase
+    setOriginalInput(value);
+    const convertedValue = convertLettersToNumbers(value);
+    if (convertedValue.split('.').length > 2) return; // Prevent multiple decimal points
+    setInput(convertedValue.slice(0, 12)); // Allow up to 11 digits plus potentially 1 decimal point
   };
 
   const clearInput = () => {
+    setOriginalInput('');
     setInput('');
   };
 
@@ -89,6 +101,7 @@ const CalculatorWordSimulator = () => {
 
   const setExample = (number) => {
     setInput(number);
+    setOriginalInput(number);
   };
 
   return (
@@ -97,9 +110,9 @@ const CalculatorWordSimulator = () => {
       <div className="input-container">
         <Input
           type="text"
-          value={input}
+          value={originalInput}
           onChange={handleInputChange}
-          placeholder="Enter numbers (max 11 digits)"
+          placeholder="Enter numbers (max 11 digits) or valid letters (O, I, Z, E, H, S, G, L, B)"
         />
         <Button onClick={clearInput}>Clear</Button>
       </div>
