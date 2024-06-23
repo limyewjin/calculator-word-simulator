@@ -84,7 +84,7 @@ const CalculatorWordSimulator = () => {
     { word: 'SHELL', number: '77345' },
     { word: 'BOOBIES', number: '5318008' },
     { word: 'HILLBILLIES', number: '53177187714' },
-    { word: 'BOZO', number: '0.208' },
+    { word: 'BOZO', number: '0208' },
   ];
 
   const setExample = (number) => {
