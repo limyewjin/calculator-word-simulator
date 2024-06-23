@@ -3,7 +3,7 @@ import { Input } from './ui/Input';
 import { Button } from './ui/Button';
 import '../App.css';
 
-const SevenSegmentDigit = ({ digit, hasDecimal, hasNextDecimal, upsideDown = false }) => {
+const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
   const segments = {
     '0': [1, 1, 1, 1, 1, 1, 0],
     '1': [0, 1, 1, 0, 0, 0, 0],
@@ -31,13 +31,12 @@ const SevenSegmentDigit = ({ digit, hasDecimal, hasNextDecimal, upsideDown = fal
   const activeSeg = segments[digit] || segments[' '];
 
   return (
-    <svg width="48" height="64" viewBox="0 0 50 50" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none', maxWidth: '100%', height: 'auto' }}>
-      <rect x="0" y="0" width="50" height="50" fill="black" />
+    <svg width="48" height="64" viewBox="0 0 50 64" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none' }}>
+      <rect x="0" y="0" width="50" height="64" fill="black" />
       {segmentPaths.map((d, i) => (
         <path key={i} d={d} stroke={activeSeg[i] ? 'white' : '#222'} strokeWidth="4" strokeLinecap="round" fill="none" />
       ))}
-      {hasDecimal && <circle cx="48" cy="48" r="4" fill="white" />}
-      {hasNextDecimal && <circle cx="0" cy="48" r="4" fill="white" />}
+      {hasDecimal && <circle cx="44" cy="56" r="4" fill="white" />}
     </svg>
   );
 };
@@ -60,7 +59,6 @@ const CalculatorDisplay = ({ value, upsideDown = false }) => {
           key={index}
           digit={digit}
           hasDecimal={index === paddedIntPart.length - 1 && fracPart}
-          hasNextDecimal={index === paddedIntPart.length && fracPart} // Pass prop for next digit decimal
           upsideDown={upsideDown}
         />
       ))}
