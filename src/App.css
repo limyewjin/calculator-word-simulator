@@ -31,11 +31,13 @@ h2 {
 }
 
 .input-container input {
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
   font-size: 18px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  margin: 0 auto; /* Center the input box */
+  display: block;
 }
 
 .input-container button {
@@ -47,6 +49,7 @@ h2 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px; /* Add vertical spacing */
 }
 
 .input-container button:hover {
@@ -54,17 +57,17 @@ h2 {
 }
 
 .display-wrapper {
-  text-align: center; /* Add this line to center align text */
+  text-align: center; /* Center align text */
+  background-color: black; /* Ensure the views are inside the container */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 auto; /* Center the container */
+  width: fit-content;
 }
 
 .display-container {
-  background-color: black;
-  padding: 20px;
-  border-radius: 5px;
   display: flex;
   justify-content: center;
-  width: fit-content; /* Add this line */
-  margin: 0 auto; /* Center the container */
 }
 
 .display-container svg {
@@ -74,7 +77,7 @@ h2 {
 .examples-container button {
   padding: 10px;
   font-size: 14px;
-  background-color: black; /* Updated */
+  background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
@@ -84,7 +87,7 @@ h2 {
 }
 
 .examples-container button:hover {
-  background-color: #333; /* Updated */
+  background-color: #333;
 }
 
 .resources-container ul {
