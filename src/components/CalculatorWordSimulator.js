@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from './ui/Input';
 import { Button } from './ui/Button';
-import './App.css';
+import '../App.css';
 
 const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
   const segments = {
