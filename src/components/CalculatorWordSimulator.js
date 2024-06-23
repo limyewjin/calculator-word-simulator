@@ -134,6 +134,11 @@ const CalculatorWordSimulator = () => {
               Hacker News discussion: "Words you can spell with a calculator"
             </a>
           </li>
+          <li>
+            <a href="https://github.com/limyewjin/calculator-word-simulator" target="_blank" rel="noopener noreferrer">
+              Github repository for source code
+            </a>
+          </li>
         </ul>
       </div>
     </div>
