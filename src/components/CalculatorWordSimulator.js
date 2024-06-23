@@ -126,7 +126,7 @@ const CalculatorWordSimulator = () => {
         <ul>
           <li>
             <a href="https://paperlined.org/apps/wikipedia/offsite_content/Calculator_spelling.txt" target="_blank" rel="noopener noreferrer">
-              Complete list of calculator-spellings words
+              List of calculator-spellings words (paperlined.org)
             </a>
           </li>
           <li>
