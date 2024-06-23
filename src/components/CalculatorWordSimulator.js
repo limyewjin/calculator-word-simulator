@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
+import { Input } from './ui/Input';
+import { Button } from './ui/Button';
 
 const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
   const segments = {
