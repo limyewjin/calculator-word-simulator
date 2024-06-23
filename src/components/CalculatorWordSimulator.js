@@ -60,7 +60,7 @@ const CalculatorDisplay = ({ value, upsideDown = false }) => {
           key={index}
           digit={digit}
           hasDecimal={index === paddedIntPart.length - 1 && fracPart}
-          hasNextDecimal={index === paddedIntPart.length - 2 && fracPart} // Pass prop for next digit decimal
+          hasNextDecimal={index === paddedIntPart.length && fracPart} // Pass prop for next digit decimal
           upsideDown={upsideDown}
         />
       ))}
