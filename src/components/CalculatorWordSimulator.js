@@ -31,12 +31,12 @@ const SevenSegmentDigit = ({ digit, hasDecimal, upsideDown = false }) => {
   const activeSeg = segments[digit] || segments[' '];
 
   return (
-    <svg width="48" height="64" viewBox="0 0 50 64" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none' }}>
+    <svg width="48" height="64" viewBox="0 0 52 64" style={{ transform: upsideDown ? 'rotate(180deg)' : 'none' }}>
       <rect x="0" y="0" width="50" height="64" fill="black" />
       {segmentPaths.map((d, i) => (
         <path key={i} d={d} stroke={activeSeg[i] ? 'white' : '#222'} strokeWidth="4" strokeLinecap="round" fill="none" />
       ))}
-      {hasDecimal && <circle cx="44" cy="48" r="4" fill="white" />}
+      {hasDecimal && <circle cx="46" cy="48" r="4" fill="white" />}
     </svg>
   );
 };
