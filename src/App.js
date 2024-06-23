@@ -1,5 +1,6 @@
 import React from 'react';
 import CalculatorWordSimulator from './components/CalculatorWordSimulator';
+import './App.css';
 
 function App() {
   return (
